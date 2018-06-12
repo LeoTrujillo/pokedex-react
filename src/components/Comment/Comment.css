@@ -1,0 +1,13 @@
+.form {
+  border: 1px solid #ededed;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+@media screen and (min-width: 960px) {
+  .form {
+    width: 70%;
+  }
+}

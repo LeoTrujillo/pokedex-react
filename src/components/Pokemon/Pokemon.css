@@ -1,0 +1,33 @@
+.flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pokemon-name {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.item-pokemon {
+  width: 30%;
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  margin: 15px 0px;
+  cursor: pointer;
+}
+
+.item-pokemon:hover{
+  background: #209cee;
+  color: #fff;
+}
+
+.item-pokemon span {
+  display: block;
+  text-align: center;
+}
+
+.item-pokemon img {
+  display: block;
+  margin: auto;
+}
