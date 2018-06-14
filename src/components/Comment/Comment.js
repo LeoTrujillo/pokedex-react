@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import './Comment.css';
-// import Modal from './Modal/Modal';
+
+
+function Modal(props) {
+  return (
+    <div className={props.styles}>
+      <div className="modal-background"></div>
+      <div className="modal-content">
+        <div className="box">
+          <h1>Debes llenar todos los campos</h1>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 class Comment extends Component {
   constructor(props) {
@@ -25,7 +38,7 @@ class Comment extends Component {
     event.preventDefault();
     const target = event.target;
     const value = target.value;
-    const name = target.name
+    const name = target.name;
 
     this.setState({
       [name]: value
@@ -50,6 +63,9 @@ class Comment extends Component {
     let className = 'modal';
     if (this.state.error) {
       className += ' is-active';
+      setTimeout(() => {
+        this.closeModal();
+      }, 3000);
     }
     return(
       <div>
@@ -78,16 +94,7 @@ class Comment extends Component {
             </button>
           </div>
         </form>
-
-        <div className={className}>
-          <div className="modal-background"></div>
-          <div className="modal-content">
-            <div className="box">
-              <h1>Debes llenar todos los campos</h1>
-            </div>
-          </div>
-          <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
-        </div>
+        <Modal styles={className} />
       </div>
     );
   }
