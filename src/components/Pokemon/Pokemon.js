@@ -14,7 +14,6 @@ class Pokemon extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
-        console.log('Data', data);
         let pokemons = data.objects.map((pokemon, index) => {
           if (pokemon.id === 4) pokemon.id = 3 ;
           const thumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
@@ -28,6 +27,7 @@ class Pokemon extends Component {
         this.setState({pokemons: pokemons});
       });
   }
+
 
   render() {
     return(

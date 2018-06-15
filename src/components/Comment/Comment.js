@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Comment.css';
 
+import CommentList from './components/CommentsList/CommentList';
 
 function Modal(props) {
   return (
@@ -22,7 +23,14 @@ class Comment extends Component {
       name: '',
       email: '',
       message: '',
-      error: false
+      error: false,
+      comments: [
+        {
+          name: 'Leonardo Trujillo',
+          email: 'leonardo@gmail.com',
+          message: 'Nuevo mensaje de prueba'
+        }
+      ]
     };
 
     this.closeModal = this.closeModal.bind(this);
@@ -47,13 +55,22 @@ class Comment extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.name !== '' && this.state.email !== '' && this.state.message) {
-      console.log('Data of form', this.state);
+    const comment = this.state;
+    if (comment.name !== '' && comment.email !== '' && comment.message) {
+      const c = {
+        name: comment.name,
+        email: comment.email,
+        message: comment.message
+      };
+      console.log('Data of form', c);
+      this.state.comments.push(c);
+      this.setState({comments: this.state.comments});
       this.setState({
-        name: '',
-        email: '',
-        message: ''
+          name: '',
+          email: '',
+          message: ''
       });
+      console.log('State', this.state);
     } else {
       this.setState({error: true});
     }
@@ -69,6 +86,8 @@ class Comment extends Component {
     }
     return(
       <div>
+        <CommentList comments={this.state.comments}/>
+        <hr/>
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label className="label">Nombre</label>

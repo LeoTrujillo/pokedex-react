@@ -1,0 +1,20 @@
+.comments{
+  margin: 30px 0px;
+}
+
+.comment{
+  width: 70%;
+  margin: 0px auto 20px;
+}
+
+.heart{
+ display: flex;
+ justify-content: space-between;
+ width: 33px;
+ cursor: pointer;
+ transition: all 1s ease;
+}
+
+.heart:hover {
+  color: tomato;
+}
