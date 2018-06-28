@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Nabvar';
 import Pokemon from './components/Pokemon/Pokemon';
 import Search from './components/Search/Search';
 import Comment from './components/Comment/Comment';
+import CommentList from './components/CommentsList/CommentList';
 
 import './index.css';
 
@@ -16,7 +17,12 @@ function Compo(props) {
      </div>
   );
  }
- return <Comment />;
+ return (
+    <div>
+      <CommentList />
+      <Comment />
+    </div>
+);
 }
 
 class App extends Component {

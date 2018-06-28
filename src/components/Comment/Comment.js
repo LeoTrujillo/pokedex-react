@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Comment.css';
+import { addComment } from '../../actions/index';
 
-import CommentList from './components/CommentsList/CommentList';
+const mapDispatchToProps = dispatch => {
+  return {
+    addComment: comment => dispatch(addComment(comment))
+  }
+}
+
 
 function Modal(props) {
   return (
@@ -16,21 +23,14 @@ function Modal(props) {
   );
 }
 
-class Comment extends Component {
+class FormComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       email: '',
       message: '',
-      error: false,
-      comments: [
-        {
-          name: 'Leonardo Trujillo',
-          email: 'leonardo@gmail.com',
-          message: 'Nuevo mensaje de prueba'
-        }
-      ]
+      error: false
     };
 
     this.closeModal = this.closeModal.bind(this);
@@ -63,14 +63,14 @@ class Comment extends Component {
         message: comment.message
       };
       console.log('Data of form', c);
-      this.state.comments.push(c);
-      this.setState({comments: this.state.comments});
+      this.props.addComment(c);
+      // this.state.comments.push(c);
+      // this.setState({comments: this.state.comments});
       this.setState({
           name: '',
           email: '',
           message: ''
       });
-      console.log('State', this.state);
     } else {
       this.setState({error: true});
     }
@@ -86,8 +86,6 @@ class Comment extends Component {
     }
     return(
       <div>
-        <CommentList comments={this.state.comments}/>
-        <hr/>
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label className="label">Nombre</label>
@@ -118,5 +116,7 @@ class Comment extends Component {
     );
   }
 }
+
+const Comment = connect(null, mapDispatchToProps)(FormComment);
 
 export default Comment;
