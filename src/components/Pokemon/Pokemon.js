@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Pokemon.css';
 
+const url_img = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+
 class Pokemon extends Component {
   constructor() {
     super();
@@ -15,7 +17,7 @@ class Pokemon extends Component {
       .then(res => {
         let pokemons = res.data.objects.map((pokemon, index) => {
           if (pokemon.id === 4) pokemon.id = 3 ;
-          const thumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
+          const thumbnail = `${url_img}$${pokemon.id}.png`
           return(
             <div key={index.toString()} className='item-pokemon'>
               <img src={thumbnail} alt='pokemon'/>
