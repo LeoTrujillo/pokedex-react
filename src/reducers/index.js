@@ -1,7 +1,8 @@
 import { ADD_COMMENT } from '../constants/action-types';
 
 const initialState = {
-  comments: []
+  comments: [],
+  pokemons: []
 };
 
 const rootReducer = (state = initialState, action) => {

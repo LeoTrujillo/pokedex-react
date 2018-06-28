@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Pokemon.css';
 
 class Pokemon extends Component {
@@ -10,11 +11,9 @@ class Pokemon extends Component {
   }
 
   componentDidMount() {
-    fetch('https://pokeapi.co/api/v1/sprite/?limit=150')
-      .then(results => {
-        return results.json();
-      }).then(data => {
-        let pokemons = data.objects.map((pokemon, index) => {
+    axios.get('https://pokeapi.co/api/v1/sprite/?limit=150')
+      .then(res => {
+        let pokemons = res.data.objects.map((pokemon, index) => {
           if (pokemon.id === 4) pokemon.id = 3 ;
           const thumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
           return(
