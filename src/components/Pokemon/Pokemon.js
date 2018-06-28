@@ -17,7 +17,7 @@ class Pokemon extends Component {
       .then(res => {
         let pokemons = res.data.objects.map((pokemon, index) => {
           if (pokemon.id === 4) pokemon.id = 3 ;
-          const thumbnail = `${url_img}$${pokemon.id}.png`
+          const thumbnail = `${url_img}${pokemon.id}.png`
           return(
             <div key={index.toString()} className='item-pokemon'>
               <img src={thumbnail} alt='pokemon'/>
