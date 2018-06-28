@@ -1,2 +1,2 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
-export const ALL_POKEMONS = 'ALL_POKEMONS';
+export const GET_POKEMONS = 'GET_POKEMONS';

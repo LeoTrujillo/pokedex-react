@@ -13,7 +13,8 @@
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
