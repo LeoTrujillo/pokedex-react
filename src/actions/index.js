@@ -17,9 +17,9 @@ export function loadPokemons() {
   }
 }
 
-export function receivePokemons(pokemons) {
+function receivePokemons(pokemons) {
   return {
     type: GET_POKEMONS,
-    pokemons: pokemons
+    pokemons
   }
 }
